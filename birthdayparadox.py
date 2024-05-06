@@ -1,6 +1,7 @@
 """Имитационное моделирование парадокса дней рождения."""
 
-import datetime, random
+import datetime
+import random
 
 
 def get_birthdays(number_of_birthdays):
@@ -72,7 +73,7 @@ print()
 print('Generating', num_birthdays, 'random birthdays 100 000 times...')
 input('Press Enter to begin...')
 
-print('Let\'s run another 100 000 simu;ations.')
+print('Let\'s run another 100 000 simulations.')
 simulation_match = 0
 for i in range(100_000):
     if i % 10_000 == 0:
