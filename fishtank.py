@@ -167,9 +167,10 @@ def simulate_aquarium():
     for kelp in KELPS:
         for i, kelp_segment in enumerate(kelp['segments']):
             if random.randint(1, 20) == 1:
-                kelp['segments'][i] = ')'
-            elif kelp_segment == ')':
-                kelp['segments'][i] = '('
+                if kelp_segment == '(':
+                    kelp['segments'][i] = ')'
+                elif kelp_segment == ')':
+                    kelp['segments'][i] = '('
 
 
 def draw_aquarium():
