@@ -57,23 +57,23 @@ def main():
             if board.get((ant['x'], ant['y']), False) is True:
                 next_board[(ant['x'], ant['y'])] = False
                 if ant['direction'] == NORTH:
-                    ant['direction'] == EAST
+                    ant['direction'] = EAST
                 elif ant['direction'] == EAST:
-                    ant['direction'] == SOUTH
+                    ant['direction'] = SOUTH
                 elif ant['direction'] == SOUTH:
-                    ant['direction'] == WEST
+                    ant['direction'] = WEST
                 elif ant['direction'] == WEST:
-                    ant['direction'] == NORTH
+                    ant['direction'] = NORTH
             else:
                 next_board[(ant['x'], ant['y'])] = True
                 if ant['direction'] == NORTH:
-                    ant['direction'] == WEST
+                    ant['direction'] = WEST
                 elif ant['direction'] == WEST:
-                    ant['direction'] == SOUTH
+                    ant['direction'] = SOUTH
                 elif ant['direction'] == SOUTH:
-                    ant['direction'] == EAST
+                    ant['direction'] = EAST
                 elif ant['direction'] == EAST:
-                    ant['direction'] == NORTH
+                    ant['direction'] = NORTH
             changed_tiles.append((ant['x'], ant['y']))
 
             if ant['direction'] == NORTH:
@@ -86,7 +86,7 @@ def main():
                 ant['x'] += 1
 
             ant['x'] = ant['x'] % WIDTH
-            ant['y'] = ant['x'] % HEIGHT
+            ant['y'] = ant['y'] % HEIGHT
             changed_tiles.append((ant['x'], ant['y']))
         board = next_board
 
@@ -97,6 +97,7 @@ def display_board(board, ants, changed_tiles):
     на экране, которые необходимо перерисовать."""
 
     for x, y in changed_tiles:
+        bext.goto(x, y)
         if board.get((x, y), False):
             bext.bg(BLACK_TILE)
         else:
